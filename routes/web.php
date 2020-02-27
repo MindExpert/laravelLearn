@@ -31,6 +31,8 @@ Route::get('/', function () {
 */
 // testing for my git Xhoanas PC
 
+// I will pull to my work pc from this pc and if it shows Up Im a winner
+
 Route::resource('projects', 'ProjectsController');
 
 // Route::get('/projects', 'ProjectsController@index');
