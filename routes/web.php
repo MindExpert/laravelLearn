@@ -29,9 +29,6 @@ Route::get('/', function () {
     DELETE /projects/1 --> (destroy)    - Deleting a Project (DELETE)
 
 */
-// testing for my git Xhoanas PC
-
-// I will pull to my work pc from this pc and if it shows Up Im a winner
 
 Route::resource('projects', 'ProjectsController');
 
