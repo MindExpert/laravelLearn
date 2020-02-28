@@ -9,19 +9,29 @@ class ProjectsController extends Controller
 {
     public function index() {
         $projects = Project::all();
-        
         return view('projects.index', ['projects' => $projects]);
         //  or use  (identical)-> return view('projects.index', compact('projects'));
     }
 
-    public function store() {    
-        $project = new Project();
+    public function store() { 
+        // 1st method
+        Project::create(request(['title', 'description']));
+        
+        // 2nd Method
+        /*
+            Project::create([
+                'title' => request('title'),
+                'description' => request('description'),
+            ]);
+        */   
 
-        $project->title = request('title');
-        $project->description = request('description');
-
-        $project->save();
-
+        // 3rd Method
+        /*
+            $project = new Project();
+            $project->title = request('title');
+            $project->description = request('description');
+            $project->save();
+        */
         return redirect('/projects');
     }
 
@@ -29,35 +39,31 @@ class ProjectsController extends Controller
         return view('projects.create');
     }
 
-    public function show()
-    {
-        # code...
+    public function show(Project $project) {
+        // $project = Project::findOrFail($id);
+        return view('projects.show', compact('project'));
     }
 
-    public function update($id)
-    {
-        $project = Project::findOrFail($id);
-        
-        $project->title = request('title');
-        $project->description = request('description');
-        $project->save();
+    public function update(Project $project) {
+        // this is same as one below to setting the attributes and persisting it (save)
+        $project->update(request(['title', 'description'])); 
 
+        /*
+            $project->title = request('title');
+            $project->description = request('description');
+            $project->save();
+        */
         return redirect('/projects');
-
-        // dd(request()->all());
     }
 
-    public function destroy($id)
-    {
-        Project::findOrFail($id)->delete();
+    public function destroy(Project $project) {
+        // dd(request()->all()); //Quick Debugging function
+        // Project::findOrFail($id)->delete();
+        $project->delete();
         return redirect('/projects');
-        // dd('Delete ' . $id);
     }
 
-    public function edit($id) // example.com/projects/1/edit
-    {
-        
-        $project = Project::findOrFail($id);
+    public function edit(Project $project) { // example.com/projects/1/edit
         return view('projects.edit', compact('project'));
     }
 }
