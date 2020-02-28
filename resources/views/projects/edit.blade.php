@@ -9,13 +9,13 @@
         <div class="field">
             <label class="label" for="title">Title</label>
             <div class="control">
-            <input type="text" class="input" name="title" placeholder="Title" value="{{ $project->title}}">
+            <input type="text" class="input" name="title" placeholder="Title" value="{{ $project->title}}" required>
             </div>     
         </div>
         <div class="field">
             <label class="label" for="textarea">Description</label>
             <div class="control">
-                <textarea type="text" class="input" name="description" rows="10" placeholder="Description">{{ $project->description}}</textarea>
+                <textarea type="text" class="input" name="description" rows="10" placeholder="Description" required>{{ $project->description}}</textarea>
             </div> 
         </div>
         <div class="field">
