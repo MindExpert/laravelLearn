@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-</head>
-<body>
-    <h1>Projects Folder</h1>
+@extends('layout')
+
+@section('content')
+    <h1 class="title">Projects Folder</h1>
     <ul>
         @foreach ($projects as $project)
-            <li>{{$project->title}}</li>
-            
+            <li>{{$project->title}}</li> 
         @endforeach
     </ul>
-</body>
-</html>
+@endsection

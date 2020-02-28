@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="wrapper" style="margin: 20px 15px;">
-            @yield('content')
+    <section class="section">
+        <div class="container">
+            <div class="wrapper" style="margin: auto 15px;">
+                @yield('content')
+            </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>

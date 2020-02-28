@@ -1,25 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-</head>
-<body>
-    <h1>Create Project</h1>
-  <div>
-    <form action="/projects" method="POST">
-        {{ csrf_field() }}
-        <div>
-            <input type="text" name="title" placeholder="Project Titlle">
-        </div>
-        <div>
-            <textarea name="description" cols="21" rows="5" placeholder="Description"></textarea>
-        </div>
-        <div>
-            <button type="submit">Submit Form</button>
-        </div>
-    </form>
-  </div>
-</body>
-</html>
+@extends('layout')
+
+@section('content')
+    <h1 class="title">Create Project</h1>
+        <form action="/projects" method="POST">
+            {{ csrf_field() }}
+            <div class="field">
+                <label class="label" for="title">Title</label>
+                <div class="control">
+                    <input type="text" class="input" name="title" placeholder="Project Titlle">
+                </div>     
+            </div>
+            <div class="field">
+                <label class="label" for="textarea">Description</label>
+                <div class="control">
+                    <textarea type="text" class="input" name="description" placeholder="Description"></textarea>
+                </div> 
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-link">Submit Form</button>
+                </div>
+            </div>
+        </form>
+@endsection
