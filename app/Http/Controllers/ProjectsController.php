@@ -7,8 +7,14 @@ use App\Project;
 
 class ProjectsController extends Controller
 {
-    public function index() {
-        $projects = Project::all();
+    public function index() 
+    {
+        // auth()->id() // Id of loged in user
+        // auth()->user() // User Instance
+        // auth()->check() //boolean
+        // auth()->guest()
+
+        $projects = Project::where('owner_id', auth()->id())->get();
         return view('projects.index', ['projects' => $projects]);
         //  or use  (identical)-> return view('projects.index', compact('projects'));
     }
